@@ -20,7 +20,7 @@ workflows:
       - build:
           filters:
             branches:
-             only: main
+              only: main
       - deploy:
           filters:
             branches:
