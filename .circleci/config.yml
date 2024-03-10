@@ -1,19 +1,20 @@
 version: 2
 jobs:
+  jobs:
   build:
     docker:
-      - image: circleci/python:latest
-    steps: 
-      - run: echo "build"  
-  deploy:
+      - image: cimg/base:2023.06
+    steps:
+      - checkout
+      - run: <command>
+  test:
     docker:
-      - image: circleci/python:latest
-    steps: 
-      - run: echo "deploy"
-
+      - image: cimg/base:2023.06
+    steps:
+      - checkout
+      - run: <command>
 workflows:
-  build-test-and-deploy:
+  build_and_test:
     jobs:
       - build
-      - test1
-         
+      - test
