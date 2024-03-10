@@ -1,5 +1,4 @@
 version: 2
-
 jobs:
   build:
     docker:
@@ -13,18 +12,19 @@ jobs:
       - run: echo "deploy"
 
 workflows:
-  version: 2
-
-  stage_workflow:
-    job:
+  build-test-and-deploy:
+    jobs:
       - build
-          filters:
-            branches:
-              only: main
-      - deploy:
-          filters:
-            branches:
-              only: main
+      - test1:
           requires:
-            - build    
+            - build
+      - test2:
+          requires:
+            - test1
+      - deploy:
+          requires:
+            - test2
+            
+
+  
    
