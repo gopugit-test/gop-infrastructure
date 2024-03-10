@@ -10,4 +10,21 @@ jobs:
     docker:
       - image: circleci/python:latest
     steps: 
-      - run: echo "build"
+      - run: echo "deploy"
+
+workflows:
+  version: 2
+
+  stage_workflow:
+    job:
+      - build:
+          filters:
+            branches:
+             only: main
+      - deploy:
+          filters:
+            branches:
+              only: main
+          requires:
+            - build    
+   
