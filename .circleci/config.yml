@@ -21,9 +21,9 @@ workflows:
         - build
         - deploy
  
-=======
+
   build_and_test:
     jobs:
       - build
       - test
->>>>>>> 9983619504d7fc446a7530fda26e615439ee35bd
+
