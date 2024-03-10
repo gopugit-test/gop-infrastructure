@@ -14,24 +14,8 @@ jobs:
 
 workflows:
   version: 2
-
-  stage_workflow:
-jobs:
-  build:
-    docker:
-      - image: cimg/base:2023.06
-    steps:
-      - checkout
-      - run: echo "build"
-  test:
-    docker:
-      - image: cimg/base:2023.06
-    steps:
-      - checkout
-      - run: echo "test"
-workflows:
-  build_and_test:
-    jobs:
-      - build
-      - test   
-   
+    build_and_deploy:
+      jobs:
+        - build
+        - deploy
+ 
